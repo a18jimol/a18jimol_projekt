@@ -79,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
             new FetchData().execute();
             return true;
         }
+
+        if (id == R.id.action_about){
+            String hej = "Det här sidan innehåller en väldigt fin lista på berg!";
+            Toast.makeText(getApplicationContext(), hej, Toast.LENGTH_SHORT).show();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -96,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             // Construct the URL for the Internet service
-            URL url = new URL("http://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=brom");
+            URL url = new URL("http://wwwlab.iit.his.se/a18jimol/android/data.php");
 
             // Create the request to the PHP-service, and open the connection
             urlConnection = (HttpURLConnection) url.openConnection();
