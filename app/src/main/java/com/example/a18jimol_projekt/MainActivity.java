@@ -1,5 +1,6 @@
 package com.example.a18jimol_projekt;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -31,7 +32,8 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity {
     private ArrayList<String> listData;
     private ArrayAdapter<Info> adapter;
-
+    private String[] extraMessage;
+    public static final String EXTRA_MESSAGE = "hejhej";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +51,11 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 // skaper en variabel som hämtar data från arrayerna efter värdet på i
                 String temp = adapter.getItem(i).info();
-                Toast.makeText(getApplicationContext(), temp, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getApplicationContext(), temp, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), InfoDetails.class);
+                String allt = adapter.getItem(i).info();
+                intent.putExtra(EXTRA_MESSAGE,allt );
+                startActivity(intent);
             }
         });
 
