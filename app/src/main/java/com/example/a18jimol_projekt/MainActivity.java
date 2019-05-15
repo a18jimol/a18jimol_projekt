@@ -1,5 +1,6 @@
 package com.example.a18jimol_projekt;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,12 +9,17 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -34,10 +40,12 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<Info> adapter;
     private String[] extraMessage;
     public static final String EXTRA_MESSAGE = "hejhej";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         new FetchData().execute();
 
@@ -82,7 +90,22 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.action_about){
             String hej = "Det här sidan innehåller en väldigt fin lista på berg!";
-            Toast.makeText(getApplicationContext(), hej, Toast.LENGTH_SHORT).show();
+
+            LayoutInflater inflater = getLayoutInflater();
+            View layout = inflater.inflate(R.layout.custon_toast,
+                    (ViewGroup) findViewById(R.id.custom_toast_container));
+
+            TextView text = (TextView) layout.findViewById(R.id.text);
+            text.setText("This is a custom toast");
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setView(layout);
+            toast.show();
+
+            //Toast toast = new Toast(getApplicationContext());
+
+            //Toast.makeText(getApplicationContext(), hej, Toast.LENGTH_SHORT).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
