@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<Info> adapter;
     private String[] extraMessage;
     public static final String EXTRA_MESSAGE = "hejhej";
-
+    public static final String EXTRA_MESSAGE2 = "hejhej2";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,8 +61,11 @@ public class MainActivity extends AppCompatActivity {
                 String temp = adapter.getItem(i).info();
                 // Toast.makeText(getApplicationContext(), temp, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), InfoDetails.class);
+
                 String allt = adapter.getItem(i).info();
+                String allt2 = adapter.getItem(i).hej();
                 intent.putExtra(EXTRA_MESSAGE,allt );
+                intent.putExtra(EXTRA_MESSAGE2,allt2 );
                 startActivity(intent);
             }
         });
@@ -92,8 +95,7 @@ public class MainActivity extends AppCompatActivity {
             String hej = "Det här sidan innehåller en väldigt fin lista på berg!";
 
             LayoutInflater inflater = getLayoutInflater();
-            View layout = inflater.inflate(R.layout.custon_toast,
-                    (ViewGroup) findViewById(R.id.custom_toast_container));
+            View layout = inflater.inflate(R.layout.custon_toast, (ViewGroup) findViewById(R.id.custom_toast_container));
 
             TextView text = (TextView) layout.findViewById(R.id.text);
             text.setText("This is a custom toast");

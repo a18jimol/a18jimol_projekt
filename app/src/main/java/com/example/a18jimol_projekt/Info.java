@@ -24,7 +24,11 @@ public class Info {
         tmp+=name+" is located in " +location+ " and is "+height+" years old. ";
         return tmp;
     }
-
+    public String hej(){
+        String tmp=new String();
+        tmp+=name+"test";
+        return tmp;
+    }
     public void setName(String n){
         name=n;
     }
