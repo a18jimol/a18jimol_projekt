@@ -191,9 +191,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("brom",  jimmy1.getString("name"));
                 Log.d("brom",  jimmy1.getString("location"));
                 Log.d("brom",  ""+jimmy1.getInt("size"));
+                Log.d("brom",  jimmy1.getString("company"));
+                Log.d("brom",  ""+jimmy1.getInt("cost"));
+                Log.d("brom",  jimmy1.getString("category"));
                 //Log.d("brom",  n.toString());
 
-                Info m = new Info(jimmy1.getString("name"),jimmy1.getString("location"),jimmy1.getInt("size") );
+                Info m = new Info(jimmy1.getString("name"),jimmy1.getString("location"),jimmy1.getInt("size"),jimmy1.getString("company"),jimmy1.getInt("cost"),jimmy1.getString("category") );
                 Log.d("brom",  m.toString());
                 adapter.add(m);
             }
