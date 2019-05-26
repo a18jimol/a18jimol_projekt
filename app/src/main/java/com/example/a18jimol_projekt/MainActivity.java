@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), InfoDetails.class);
 
                 String allt = adapter.getItem(i).info();
-                String allt2 = adapter.getItem(i).hej();
+                String allt2 = adapter.getItem(i).title();
                 intent.putExtra(EXTRA_MESSAGE,allt );
                 intent.putExtra(EXTRA_MESSAGE2,allt2 );
                 startActivity(intent);
