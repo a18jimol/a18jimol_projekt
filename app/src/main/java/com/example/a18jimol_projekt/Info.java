@@ -29,7 +29,7 @@ public class Info {
 
     public String info(){
         String tmp=new String();
-        tmp+= "Made by " +company+ "\n"+ "Released " +cost+  " in " +location+ "\n"+height+"-bit"+ "\n" +category;
+        tmp+= "Made by " +company+ "\n"+ "Originally released in " +cost+  " in " +location+ "\n"+height+"-bit"+ "\n" +category;
         return tmp;
     }
     public String title(){

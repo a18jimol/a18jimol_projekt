@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.action_about){
             Intent intent = new Intent(getApplicationContext(), InfoDetails.class);
-            String abouttext = "Den här appen är gjord för personer med ett intresse för retro spelkonsoler";
+            String abouttext = "Den här appen är byggd för att bevara information om gamla spelkonsoler. Appen är för både personer med ett stort intresse för spelkonsoler och de som vill lära sig något nytt.";
             intent.putExtra(EXTRA_MESSAGE,abouttext );
             startActivity(intent);
 
