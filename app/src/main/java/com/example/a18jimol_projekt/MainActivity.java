@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        setTitle("Retro Spel Listan");
         new FetchData().execute();
 
         adapter = new ArrayAdapter<Info>(this, R.layout.list_item, R.id.list_item_textview);
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 // skaper en variabel som hämtar data från arrayerna efter värdet på i
                 String temp = adapter.getItem(i).info();
-                // Toast.makeText(getApplicationContext(), temp, Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(getApplicationContext(), InfoDetails.class);
 
                 String allt = adapter.getItem(i).info();
@@ -92,22 +92,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (id == R.id.action_about){
-            String hej = "Det här sidan innehåller en väldigt fin lista på berg!";
+            Intent intent = new Intent(getApplicationContext(), InfoDetails.class);
+            String abouttext = "Den här appen är gjord för personer med ett intresse för retro spelkonsoler";
+            intent.putExtra(EXTRA_MESSAGE,abouttext );
+            startActivity(intent);
 
-            LayoutInflater inflater = getLayoutInflater();
-            View layout = inflater.inflate(R.layout.custon_toast, (ViewGroup) findViewById(R.id.custom_toast_container));
-
-            TextView text = (TextView) layout.findViewById(R.id.text);
-            text.setText("This is a custom toast");
-
-            Toast toast = new Toast(getApplicationContext());
-            toast.setDuration(Toast.LENGTH_LONG);
-            toast.setView(layout);
-            toast.show();
-
-            //Toast toast = new Toast(getApplicationContext());
-
-            //Toast.makeText(getApplicationContext(), hej, Toast.LENGTH_SHORT).show();
             return true;
         }
         return super.onOptionsItemSelected(item);

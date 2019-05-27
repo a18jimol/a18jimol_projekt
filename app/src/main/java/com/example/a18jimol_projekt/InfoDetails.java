@@ -11,7 +11,7 @@ public class InfoDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about);
-
+        setTitle("Details");
         Intent intent = getIntent();
         String info1 = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         String info2 = intent.getStringExtra(MainActivity.EXTRA_MESSAGE2);
